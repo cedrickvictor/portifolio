@@ -1,0 +1,44 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="70" y1="50" x2="1120" y2="690" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B0D12"/>
+      <stop offset="1" stop-color="#07080B"/>
+    </linearGradient>
+    <radialGradient id="r1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(420 240) rotate(25) scale(560 420)">
+      <stop stop-color="#7C3AED" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#7C3AED" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="r2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(840 420) rotate(-18) scale(560 420)">
+      <stop stop-color="#22C55E" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#22C55E" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="720" rx="40" fill="url(#bg)"/>
+  <rect width="1200" height="720" rx="40" fill="url(#r1)"/>
+  <rect width="1200" height="720" rx="40" fill="url(#r2)"/>
+
+  <g opacity="0.9">
+    <rect x="90" y="90" width="1020" height="540" rx="28" stroke="rgba(255,255,255,0.14)" stroke-width="2" fill="rgba(255,255,255,0.03)"/>
+    <rect x="130" y="140" width="460" height="18" rx="9" fill="rgba(255,255,255,0.14)"/>
+    <rect x="130" y="176" width="320" height="12" rx="6" fill="rgba(255,255,255,0.10)"/>
+
+    <rect x="130" y="230" width="940" height="360" rx="20" fill="rgba(0,0,0,0.22)" stroke="rgba(255,255,255,0.10)"/>
+    <rect x="160" y="265" width="410" height="14" rx="7" fill="rgba(255,255,255,0.12)"/>
+    <rect x="160" y="298" width="620" height="12" rx="6" fill="rgba(255,255,255,0.10)"/>
+    <rect x="160" y="328" width="560" height="12" rx="6" fill="rgba(255,255,255,0.10)"/>
+    <rect x="160" y="358" width="590" height="12" rx="6" fill="rgba(255,255,255,0.10)"/>
+
+    <rect x="160" y="408" width="210" height="30" rx="15" fill="rgba(124,58,237,0.30)" />
+    <rect x="382" y="408" width="210" height="30" rx="15" fill="rgba(59,130,246,0.24)" />
+    <rect x="604" y="408" width="210" height="30" rx="15" fill="rgba(34,197,94,0.20)" />
+
+    <rect x="160" y="470" width="880" height="12" rx="6" fill="rgba(255,255,255,0.10)"/>
+    <rect x="160" y="500" width="820" height="12" rx="6" fill="rgba(255,255,255,0.10)"/>
+    <rect x="160" y="530" width="760" height="12" rx="6" fill="rgba(255,255,255,0.10)"/>
+  </g>
+
+  <text x="130" y="120" fill="rgba(255,255,255,0.86)" font-family="ui-sans-serif, system-ui" font-size="20" font-weight="600">
+    Vault API Gateway · Case Study
+  </text>
+</svg>
+

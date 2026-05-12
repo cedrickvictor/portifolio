@@ -1,26 +1,111 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #07080b;
+  --bg-elev: #0b0d12;
+  --fg: #e8eaf0;
+  --muted: #aab0c0;
+  --muted-2: #7e8597;
+  --border: rgba(255, 255, 255, 0.10);
+  --ring: rgba(255, 255, 255, 0.28);
+  --card: rgba(255, 255, 255, 0.03);
+  --card-2: rgba(255, 255, 255, 0.06);
+  --shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+
+  --accent: 124 92% 60%;
+  --accent-2: 213 95% 64%;
+  --accent-3: 277 92% 64%;
+  --radius: 16px;
+}
+
+.light {
+  --bg: #f8fafc;
+  --bg-elev: #ffffff;
+  --fg: #0a0b10;
+  --muted: #475569;
+  --muted-2: #64748b;
+  --border: rgba(2, 6, 23, 0.10);
+  --ring: rgba(2, 6, 23, 0.20);
+  --card: rgba(2, 6, 23, 0.03);
+  --card-2: rgba(2, 6, 23, 0.06);
+  --shadow: 0 12px 40px rgba(2, 6, 23, 0.10);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-background: var(--bg);
+  --color-foreground: var(--fg);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system,
+    Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Subtle, premium focus ring */
+:where(a, button, input, textarea, select, [tabindex]):focus-visible {
+  outline: 2px solid transparent;
+  box-shadow: 0 0 0 3px var(--ring);
+  border-radius: 10px;
+}
+
+.container-pad {
+  @apply mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8;
+}
+
+.glass {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.06),
+    rgba(255, 255, 255, 0.03)
+  );
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(14px);
+}
+
+.text-gradient {
+  background: linear-gradient(
+    90deg,
+    hsl(var(--accent)) 0%,
+    hsl(var(--accent-2)) 45%,
+    hsl(var(--accent-3)) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.grid-fade {
+  background-image: radial-gradient(
+      circle at 1px 1px,
+      rgba(255, 255, 255, 0.09) 1px,
+      transparent 0
+    ),
+    radial-gradient(
+      circle at 1px 1px,
+      rgba(255, 255, 255, 0.06) 1px,
+      transparent 0
+    );
+  background-size: 22px 22px, 88px 88px;
+  mask-image: radial-gradient(circle at 45% 20%, black, transparent 62%);
+}
+
+.noise {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+  opacity: 0.25;
 }
