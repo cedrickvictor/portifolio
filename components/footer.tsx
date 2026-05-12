@@ -11,7 +11,7 @@ export function Footer() {
         <div className="flex flex-col gap-3">
           <p className="text-sm text-slate-600 dark:text-slate-400">
             © {new Date().getFullYear()} {PROFILE.company} · {PROFILE.name}.
-            Built with Next.js, Tailwind, and attention to detail.
+            Concise & Modern.
           </p>
           <SocialBar />
         </div>

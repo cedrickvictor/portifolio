@@ -64,7 +64,7 @@ export function HeroSection() {
               <div className="relative overflow-hidden rounded-[32px] border border-slate-200 bg-white/90 p-6 shadow-sm dark:border-slate-700 dark:bg-white/4 dark:shadow-none">
                 <div className="flex items-center gap-4">
                   <Image
-                    src="/avatar.svg"
+                    src="/profile.jpg"
                     alt="Developer avatar"
                     width={56}
                     height={56}

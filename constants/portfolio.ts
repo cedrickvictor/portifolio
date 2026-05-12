@@ -2,7 +2,7 @@ import type { Project, Skill, Testimonial, TimelineItem } from "@/types/portfoli
 
 /** Display name (title case) */
 export const PROFILE = {
-  name: "Niyonkuru Cedric Victor",
+  name: "NIYONKURU Cedric Victor",
   company: "GriLab",
   title: "Expert Web, Mobile, and Software Engineering",
   location: "Kigali, Rwanda",
