@@ -1,21 +1,85 @@
 import type { Project, Skill, Testimonial, TimelineItem } from "@/types/portfolio";
 
+/** Display name (title case) */
 export const PROFILE = {
-  name: "Q.C",
-  title: "Full Stack Developer",
-  location: "Remote · UTC+2",
-  valueProp: "I build scalable, secure, user-focused digital products.",
-  summary:
-    "I’m a product-minded engineer who ships clean systems with measurable outcomes—performance, reliability, conversion, and developer velocity.",
+  name: "Niyonkuru Cedric Victor",
+  company: "GriLab",
+  title: "Expert Web, Mobile, and Software Engineering",
+  location: "Kigali, Rwanda",
+  valueProp:
+    "Versatile Web Developer bridging elegant design and technical performance—React, Next.js, Node.js, machine learning, hands-on training across languages, and supervised delivery.",
+  summary: `Versatile Web Developer dedicated to bridging the gap between elegant design and technical performance. With expertise in the modern web ecosystem—specifically React, Next.js, and Node.js—I focus on writing clean, maintainable code that delivers measurable business value.
+
+Throughout my career, I've stayed committed to optimizing web performance and accessibility, ensuring that every project I touch is as inclusive as it is fast. I don't just build websites; I build digital solutions that solve real-world problems.
+
+I apply machine learning where it drives outcomes, train teams across languages and stacks, and supervise projects so delivery stays aligned from discovery to launch.`,
+  companyDescription: `GriLab is a full-service technology partner specializing in custom web design, mobile application development, and robust software engineering. We simplify the Information and Technology landscape by providing end-to-end solutions that drive efficiency and innovation.
+
+Our expertise spans the latest development frameworks and official Microsoft Training programs designed to elevate your business operations. Focused on quality, security, and scalability, we are your trusted source for all things IT.`,
+  /** Short line under the logo in the navbar */
+  navSubtitle: "Web · Mobile · Software",
+  phoneDisplay: "+250 789 359 021",
   links: {
-    github: "https://github.com/your-handle",
-    linkedin: "https://linkedin.com/in/your-handle",
-    email: "mailto:you@example.com",
-    whatsapp: "https://wa.me/0000000000",
+    email: "mailto:cedrickvictor8@gmail.com",
+    phone: "tel:+250789359021",
+    whatsapp: "https://wa.me/250789359021",
+    github: "https://github.com/cedrickvictor",
+    instagram: "https://www.instagram.com/cedrick_grinel",
+    x: "https://x.com/cedrick_grinel",
+    telegram: "https://t.me/cedrickvictor",
+    facebook: "https://www.facebook.com/cedrickvictor",
   },
 } as const;
 
+/** Ordered social destinations (icons rendered in `components/social-bar.tsx`). Verify Instagram/Facebook/Telegram URLs if needed. */
+export const SOCIAL_LINKS = [
+  {
+    key: "instagram",
+    label: "Instagram",
+    href: PROFILE.links.instagram,
+  },
+  {
+    key: "whatsapp",
+    label: "WhatsApp",
+    href: PROFILE.links.whatsapp,
+  },
+  {
+    key: "gmail",
+    label: "Email",
+    href: PROFILE.links.email,
+  },
+  {
+    key: "x",
+    label: "X",
+    href: PROFILE.links.x,
+  },
+  {
+    key: "telegram",
+    label: "Telegram",
+    href: PROFILE.links.telegram,
+  },
+  {
+    key: "facebook",
+    label: "Facebook",
+    href: PROFILE.links.facebook,
+  },
+  {
+    key: "github",
+    label: "GitHub",
+    href: PROFILE.links.github,
+  },
+] as const;
+
+export type SocialKey = (typeof SOCIAL_LINKS)[number]["key"];
+
 export const SKILLS: Skill[] = [
+  {
+    name: "Machine Learning",
+    level: 78,
+    group: "Backend",
+    detail:
+      "Practical ML integration, data pipelines, evaluation, and shipping models alongside web products.",
+  },
   // Frontend
   {
     name: "React",
@@ -112,7 +176,7 @@ export const PROJECTS: Project[] = [
     ],
     technologies: ["Next.js", "TypeScript", "Node.js", "MySQL", "Stripe"],
     links: {
-      github: "https://github.com/your-handle/atlas-billing",
+      github: "https://github.com/cedrickvictor/atlas-billing",
       live: "https://example.com",
     },
   },
@@ -132,7 +196,7 @@ export const PROJECTS: Project[] = [
     ],
     technologies: ["React", "Next.js", "Framer Motion", "Tailwind"],
     links: {
-      github: "https://github.com/your-handle/pulse-dashboard",
+      github: "https://github.com/cedrickvictor/pulse-dashboard",
       live: "https://example.com",
     },
   },
@@ -152,49 +216,49 @@ export const PROJECTS: Project[] = [
     ],
     technologies: ["Node.js", "Express", "Zod", "MySQL"],
     links: {
-      github: "https://github.com/your-handle/vault-api",
+      github: "https://github.com/cedrickvictor/vault-api",
     },
   },
 ];
 
 export const EXPERIENCE: TimelineItem[] = [
   {
-    title: "Full Stack Developer (Freelance)",
-    org: "Independent",
+    title: "Founder & Lead Engineer",
+    org: "GriLab",
     period: "2024 — Present",
     description:
-      "Deliver end-to-end web products: discovery, architecture, implementation, and deployment. Strong focus on performance, accessibility, and maintainable code.",
+      "Full-service technology partner for web, mobile, and software engineering—custom builds, Microsoft-aligned training, and supervised project delivery with a focus on quality, security, and scale.",
     highlights: [
-      "Built production-grade Next.js apps with design systems and analytics.",
-      "Improved conversion with UX-driven iterations and faster page loads.",
-      "Established CI, PR standards, and documentation for client handoff.",
+      "End-to-end delivery: web design, mobile apps, and robust backend systems.",
+      "Training and mentorship across modern stacks; supervision from discovery to launch.",
+      "Microsoft Training program alignment and pragmatic ML where it adds business value.",
     ],
   },
   {
-    title: "Software Engineering Intern",
-    org: "Product Team",
-    period: "2023",
+    title: "Full Stack Developer (Freelance)",
+    org: "Independent",
+    period: "2022 — 2024",
     description:
-      "Shipped customer-facing features, fixed reliability issues, and improved component reuse with a small, high-ownership team.",
+      "Delivered client products with emphasis on performance, accessibility, and maintainable code.",
     highlights: [
-      "Refactored UI into reusable primitives, reducing duplicate code.",
-      "Optimized key flows and fixed regressions with targeted tests.",
-      "Collaborated with design on accessibility and UX details.",
+      "Production-grade Next.js apps with clear architecture and documentation.",
+      "Performance and a11y improvements on business-critical flows.",
+      "CI, PR standards, and clean handoffs for client teams.",
     ],
   },
 ];
 
 export const EDUCATION: TimelineItem[] = [
   {
-    title: "Computer Science Training",
-    org: "Self-directed + courses",
-    period: "2021 — 2023",
+    title: "Computer Science & continuous learning",
+    org: "Self-directed + formal training",
+    period: "2021 — Present",
     description:
-      "Focused on web fundamentals, algorithms, system design basics, and shipping real projects. Continuous learning through practice and iteration.",
+      "Deep focus on web fundamentals, software engineering practice, and staying current with frameworks and platforms—including Microsoft ecosystem training.",
     highlights: [
-      "TypeScript + React mastery through repeated product builds.",
-      "Backend fundamentals: REST, auth, data modeling, caching.",
-      "UI craft: spacing, typography, motion, and interaction design.",
+      "TypeScript, React, and Node.js through shipped products.",
+      "Backend: REST, auth, data modeling, observability.",
+      "Teaching mindset: workshops, pair sessions, and supervised projects.",
     ],
   },
 ];
@@ -227,4 +291,3 @@ export const TESTIMONIALS: Testimonial[] = [
     avatar: "/avatars/sofia.svg",
   },
 ];
-

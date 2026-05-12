@@ -7,7 +7,8 @@ import { PROFILE } from "@/constants/portfolio";
 import { contactSchema, type ContactInput } from "@/lib/contact-schema";
 import { Reveal } from "@/components/motion/reveal";
 import { motion, AnimatePresence } from "framer-motion";
-import { GitBranch, Link2, Mail, MessageCircle } from "lucide-react";
+import { Phone } from "lucide-react";
+import { SocialBar } from "@/components/social-bar";
 
 type FieldErrors = Partial<Record<keyof ContactInput, string>>;
 
@@ -30,16 +31,16 @@ function Field({
 }) {
   const id = `contact-${name}`;
   const common =
-    "mt-2 w-full rounded-2xl border bg-white/3 px-4 py-3 text-sm text-white placeholder:text-white/35 outline-none transition";
+    "mt-2 w-full rounded-2xl border bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 outline-none transition dark:bg-white/3 dark:text-slate-100 dark:placeholder:text-white/35";
   const cls = error
     ? "border-red-500/40 focus:border-red-400/60"
-    : "border-white/10 focus:border-white/20";
+    : "border-slate-200 focus:border-slate-400 dark:border-white/10 dark:focus:border-white/20";
 
   return (
     <div>
       <label
         htmlFor={id}
-        className="text-xs font-medium tracking-wide text-white/65"
+        className="text-xs font-medium tracking-wide text-slate-600 dark:text-slate-400"
       >
         {label}
       </label>
@@ -153,39 +154,25 @@ export function ContactSection() {
           </Reveal>
 
           <Reveal delay={0.08}>
-            <div className="mt-7 rounded-3xl border border-white/10 bg-white/3 p-6">
-              <p className="text-sm font-semibold text-white">Direct links</p>
-              <div className="mt-4 grid gap-2">
-                <a
-                  className="inline-flex items-center gap-3 rounded-2xl border border-white/10 bg-white/4 px-4 py-3 text-sm text-white/80 hover:bg-white/8 hover:text-white"
-                  href={PROFILE.links.github}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <GitBranch className="h-4 w-4" /> GitHub
-                </a>
-                <a
-                  className="inline-flex items-center gap-3 rounded-2xl border border-white/10 bg-white/4 px-4 py-3 text-sm text-white/80 hover:bg-white/8 hover:text-white"
-                  href={PROFILE.links.linkedin}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <Link2 className="h-4 w-4" /> LinkedIn
-                </a>
-                <a
-                  className="inline-flex items-center gap-3 rounded-2xl border border-white/10 bg-white/4 px-4 py-3 text-sm text-white/80 hover:bg-white/8 hover:text-white"
-                  href={PROFILE.links.email}
-                >
-                  <Mail className="h-4 w-4" /> Email
-                </a>
-                <a
-                  className="inline-flex items-center gap-3 rounded-2xl border border-white/10 bg-white/4 px-4 py-3 text-sm text-white/80 hover:bg-white/8 hover:text-white"
-                  href={PROFILE.links.whatsapp}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <MessageCircle className="h-4 w-4" /> WhatsApp
-                </a>
+            <div className="mt-7 rounded-3xl border border-slate-200 bg-slate-50/90 p-6 dark:border-slate-800 dark:bg-white/3">
+              <p className="text-sm font-semibold text-slate-900 dark:text-slate-100">
+                Connect
+              </p>
+              <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
+                Prefer a call or WhatsApp? Same number for both.
+              </p>
+              <a
+                href={PROFILE.links.phone}
+                className="mt-4 flex items-center gap-2 text-sm font-medium text-slate-800 hover:text-slate-950 dark:text-slate-200 dark:hover:text-white"
+              >
+                <Phone className="h-4 w-4 shrink-0" aria-hidden />
+                {PROFILE.phoneDisplay}
+              </a>
+              <div className="mt-5 border-t border-slate-200 pt-5 dark:border-slate-800">
+                <p className="mb-3 text-xs font-medium uppercase tracking-wide text-slate-500 dark:text-slate-500">
+                  Social
+                </p>
+                <SocialBar />
               </div>
             </div>
           </Reveal>
@@ -244,7 +231,7 @@ export function ContactSection() {
                         initial={{ opacity: 0, y: 6 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 6 }}
-                        className="text-emerald-300/90"
+                        className="text-emerald-700 dark:text-emerald-300/90"
                       >
                         {serverMessage ?? "Message sent. I’ll get back to you soon."}
                       </motion.p>
@@ -254,7 +241,7 @@ export function ContactSection() {
                         initial={{ opacity: 0, y: 6 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 6 }}
-                        className="text-red-300/90"
+                        className="text-red-600 dark:text-red-300/90"
                       >
                         {serverMessage ??
                           "Something went wrong. Please try again or email me."}
@@ -265,7 +252,7 @@ export function ContactSection() {
                         initial={{ opacity: 0, y: 6 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 6 }}
-                        className="text-white/50"
+                        className="text-slate-500 dark:text-slate-500"
                       >
                         Typical response time: under 24 hours.
                       </motion.p>
@@ -276,7 +263,7 @@ export function ContactSection() {
                 <button
                   type="submit"
                   disabled={status === "submitting"}
-                  className="inline-flex h-12 items-center justify-center rounded-full bg-white px-6 text-[15px] font-medium text-black hover:opacity-90 disabled:opacity-60"
+                  className="inline-flex h-12 items-center justify-center rounded-full bg-slate-900 px-6 text-[15px] font-medium text-slate-50 hover:opacity-90 disabled:opacity-60 dark:bg-white dark:text-slate-950"
                 >
                   {status === "submitting" ? "Sending…" : "Send message"}
                 </button>

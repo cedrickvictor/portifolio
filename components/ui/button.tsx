@@ -12,10 +12,11 @@ const base =
 
 const variants: Record<ButtonVariant, string> = {
   primary:
-    "bg-white text-black shadow-[0_10px_30px_rgba(0,0,0,0.35)] hover:shadow-[0_18px_60px_rgba(0,0,0,0.55)]",
+    "bg-slate-900 text-slate-50 shadow-[0_10px_30px_rgba(0,0,0,0.2)] hover:shadow-[0_18px_60px_rgba(0,0,0,0.35)] dark:bg-white dark:text-slate-950 dark:shadow-[0_10px_30px_rgba(0,0,0,0.35)] dark:hover:shadow-[0_18px_60px_rgba(0,0,0,0.55)]",
   secondary:
-    "bg-white/10 text-white border border-white/10 hover:bg-white/14 hover:border-white/16",
-  ghost: "text-white/80 hover:text-white hover:bg-white/8",
+    "border border-slate-200 bg-white/80 text-slate-900 hover:border-slate-300 hover:bg-white dark:border-white/10 dark:bg-white/10 dark:text-slate-100 dark:hover:border-white/16 dark:hover:bg-white/14",
+  ghost:
+    "text-slate-700 hover:bg-slate-100 hover:text-slate-950 dark:text-slate-300 dark:hover:bg-white/8 dark:hover:text-slate-50",
 };
 
 const sizes: Record<ButtonSize, string> = {

@@ -1,34 +1,68 @@
 @import "tailwindcss";
 
+/*
+ * Portfolio color palette (Tailwind slate–aligned)
+ *
+ * Dark mode
+ *   • Page bg: slate-900 #0f172a — deep charcoal
+ *   • Surfaces: slate-800 #1e293b — cards / elevated panels
+ *   • Body text: slate-100 #f1f5f9 (via text-slate-100)
+ *   • Borders: slate-800 #1e293b — subtle separation
+ *
+ * Light mode
+ *   • Page bg: slate-50 #f8fafc — soft off-white (not pure white)
+ *   • Surfaces: white #ffffff — raised cards
+ *   • Body text: slate-900 #0f172a — high contrast
+ *   • Borders: slate-200 #e2e8f0 — subtle structure
+ *
+ * Semantic tokens (--bg, --fg, etc.) map to these roles for non-Tailwind CSS.
+ */
+
 :root {
-  --bg: #07080b;
-  --bg-elev: #0b0d12;
-  --fg: #e8eaf0;
-  --muted: #aab0c0;
-  --muted-2: #7e8597;
-  --border: rgba(255, 255, 255, 0.10);
-  --ring: rgba(255, 255, 255, 0.28);
-  --card: rgba(255, 255, 255, 0.03);
-  --card-2: rgba(255, 255, 255, 0.06);
-  --shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+  --bg: #0f172a;
+  --bg-elev: #1e293b;
+  --fg: #f1f5f9;
+  --muted: #94a3b8;
+  --muted-2: #64748b;
+  --border: #1e293b;
+  --border-subtle: rgba(148, 163, 184, 0.12);
+  --ring: rgba(148, 163, 184, 0.35);
+  --card: rgba(255, 255, 255, 0.04);
+  --card-2: rgba(255, 255, 255, 0.07);
+  --shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+
+  --glass-from: rgba(255, 255, 255, 0.07);
+  --glass-to: rgba(255, 255, 255, 0.03);
+  --grid-dot: rgba(255, 255, 255, 0.09);
+  --grid-dot-2: rgba(255, 255, 255, 0.06);
 
   --accent: 124 92% 60%;
   --accent-2: 213 95% 64%;
   --accent-3: 277 92% 64%;
   --radius: 16px;
+
+  color-scheme: dark;
 }
 
-.light {
+:root.light {
   --bg: #f8fafc;
   --bg-elev: #ffffff;
-  --fg: #0a0b10;
+  --fg: #0f172a;
   --muted: #475569;
   --muted-2: #64748b;
-  --border: rgba(2, 6, 23, 0.10);
-  --ring: rgba(2, 6, 23, 0.20);
-  --card: rgba(2, 6, 23, 0.03);
-  --card-2: rgba(2, 6, 23, 0.06);
-  --shadow: 0 12px 40px rgba(2, 6, 23, 0.10);
+  --border: #e2e8f0;
+  --border-subtle: rgba(15, 23, 42, 0.08);
+  --ring: rgba(15, 23, 42, 0.2);
+  --card: rgba(15, 23, 42, 0.03);
+  --card-2: rgba(15, 23, 42, 0.06);
+  --shadow: 0 12px 40px rgba(15, 23, 42, 0.08);
+
+  --glass-from: rgba(255, 255, 255, 0.95);
+  --glass-to: rgba(248, 250, 252, 0.85);
+  --grid-dot: rgba(15, 23, 42, 0.07);
+  --grid-dot-2: rgba(15, 23, 42, 0.05);
+
+  color-scheme: light;
 }
 
 @theme inline {
@@ -67,12 +101,8 @@ html {
 }
 
 .glass {
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.06),
-    rgba(255, 255, 255, 0.03)
-  );
-  border: 1px solid var(--border);
+  background: linear-gradient(180deg, var(--glass-from), var(--glass-to));
+  border: 1px solid var(--border-subtle);
   box-shadow: var(--shadow);
   backdrop-filter: blur(14px);
 }
@@ -92,12 +122,12 @@ html {
 .grid-fade {
   background-image: radial-gradient(
       circle at 1px 1px,
-      rgba(255, 255, 255, 0.09) 1px,
+      var(--grid-dot) 1px,
       transparent 0
     ),
     radial-gradient(
       circle at 1px 1px,
-      rgba(255, 255, 255, 0.06) 1px,
+      var(--grid-dot-2) 1px,
       transparent 0
     );
   background-size: 22px 22px, 88px 88px;
@@ -108,4 +138,8 @@ html {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E");
   mix-blend-mode: overlay;
   opacity: 0.25;
+}
+
+:root.light .noise {
+  opacity: 0.12;
 }

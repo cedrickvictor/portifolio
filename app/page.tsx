@@ -10,7 +10,10 @@ import { Footer } from "@/components/footer";
 
 export default function Home() {
   return (
-    <main id="home" className="relative flex-1">
+    <main
+      id="home"
+      className="relative flex-1 text-slate-900 dark:text-slate-100"
+    >
       <Navbar />
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="absolute inset-0 grid-fade opacity-70" />

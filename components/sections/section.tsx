@@ -14,7 +14,7 @@ export function Section({
     <section
       id={id}
       className={cn(
-        "container-pad scroll-mt-24 py-[72px] sm:py-[88px]",
+        "container-pad scroll-mt-24 py-[72px] sm:py-[88px] text-slate-900 dark:text-slate-100",
         className,
       )}
     >

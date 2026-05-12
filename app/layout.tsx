@@ -17,27 +17,27 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(getSiteUrl()),
   title: {
-    default: "Q.C — Full Stack Developer",
-    template: "%s · Q.C",
+    default: "GriLab · Niyonkuru Cedric Victor — Web, Mobile & Software Engineering",
+    template: "%s · GriLab",
   },
   description:
-    "Full Stack Developer building scalable, secure, user-focused products. Case studies, selected work, and ways to get in touch.",
+    "GriLab: expert web, mobile, and software engineering in Rwanda—custom builds, machine learning, Microsoft-aligned training, and supervised projects.",
   robots: {
     index: true,
     follow: true,
   },
   openGraph: {
     type: "website",
-    title: "Q.C — Full Stack Developer",
+    title: "GriLab · Expert Web, Mobile & Software Engineering",
     description:
-      "A premium developer portfolio with case studies, selected work, and contact.",
-    siteName: "Q.C Portfolio",
+      "Full-service technology partner: web design, mobile apps, software engineering, ML, training, and project supervision.",
+    siteName: "GriLab Portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Q.C — Full Stack Developer",
+    title: "GriLab · Expert Web, Mobile & Software Engineering",
     description:
-      "A premium developer portfolio with case studies, selected work, and contact.",
+      "Full-service technology partner: web design, mobile apps, software engineering, ML, training, and project supervision.",
   },
 };
 
@@ -52,11 +52,11 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col bg-[--bg] text-[--fg] selection:bg-white/10 selection:text-white">
+      <body className="min-h-full flex flex-col bg-[--bg] text-slate-900 dark:text-slate-100 selection:bg-slate-200/90 selection:text-slate-900 dark:selection:bg-slate-700 dark:selection:text-slate-100">
         <ThemeProvider>
           <a
             href="#home"
-            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[60] focus:rounded-full focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-black"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[60] focus:rounded-full focus:bg-slate-900 focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-slate-50 dark:focus:bg-white dark:focus:text-slate-900"
           >
             Skip to content
           </a>

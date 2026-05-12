@@ -24,7 +24,7 @@ function ProjectLinks({ project }: { project: Project }) {
     <div className="flex flex-wrap gap-2">
       {project.links.github ? (
         <a
-          className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/6 px-3 py-2 text-sm text-white/80 hover:bg-white/10 hover:text-white"
+          className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-100 px-3 py-2 text-sm text-slate-800 hover:bg-slate-200 hover:text-slate-950 dark:border-slate-800 dark:bg-white/6 dark:text-slate-300 dark:hover:bg-white/10 dark:hover:text-slate-50"
           href={project.links.github}
           target="_blank"
           rel="noreferrer"
@@ -35,7 +35,7 @@ function ProjectLinks({ project }: { project: Project }) {
       ) : null}
       {project.links.live ? (
         <a
-          className="inline-flex items-center gap-2 rounded-full bg-white px-3 py-2 text-sm font-medium text-black hover:opacity-90"
+          className="inline-flex items-center gap-2 rounded-full bg-slate-900 px-3 py-2 text-sm font-medium text-slate-50 hover:opacity-90 dark:bg-white dark:text-slate-950"
           href={project.links.live}
           target="_blank"
           rel="noreferrer"
@@ -88,9 +88,9 @@ function TiltCard({
         onPointerMove={onMove}
         onPointerLeave={onLeave}
         className={cn(
-          "relative h-full overflow-hidden rounded-3xl border border-white/10 bg-white/3",
+          "relative h-full overflow-hidden rounded-3xl border border-slate-200 bg-white/90 dark:border-slate-800 dark:bg-white/3",
           "transition-[box-shadow,transform] duration-200 will-change-transform",
-          "hover:shadow-[0_28px_120px_rgba(0,0,0,0.55)]",
+          "hover:shadow-[0_28px_120px_rgba(15,23,42,0.12)] dark:hover:shadow-[0_28px_120px_rgba(0,0,0,0.55)]",
         )}
         style={style}
       >
@@ -101,13 +101,13 @@ function TiltCard({
 
         <div className="relative p-5 sm:p-6">
           <div className="flex items-center justify-between gap-3">
-            <p className="text-sm font-semibold text-white">{project.title}</p>
-            <span className="rounded-full border border-white/10 bg-white/6 px-2.5 py-1 text-xs font-medium text-white/70">
+            <p className="text-sm font-semibold text-slate-900 dark:text-slate-100">{project.title}</p>
+            <span className="rounded-full border border-slate-200 bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-700 dark:border-slate-800 dark:bg-white/6 dark:text-slate-300">
               {project.category}
             </span>
           </div>
 
-          <div className="mt-4 overflow-hidden rounded-2xl border border-white/10 bg-black/20">
+          <div className="mt-4 overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 dark:border-slate-800 dark:bg-black/20">
             <Image
               src={project.image.src}
               alt={project.image.alt}
@@ -118,8 +118,8 @@ function TiltCard({
             />
           </div>
 
-          <p className="mt-4 text-sm leading-6 text-white/65">
-            <span className="text-white/85 font-medium">Problem:</span>{" "}
+          <p className="mt-4 text-sm leading-6 text-slate-600 dark:text-slate-400">
+            <span className="font-medium text-slate-800 dark:text-slate-200">Problem:</span>{" "}
             {project.problem}
           </p>
 
@@ -127,13 +127,13 @@ function TiltCard({
             {project.technologies.slice(0, 4).map((t) => (
               <span
                 key={t}
-                className="rounded-full border border-white/10 bg-white/4 px-2.5 py-1 text-xs text-white/70"
+                className="rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs text-slate-700 dark:border-slate-800 dark:bg-white/4 dark:text-slate-400"
               >
                 {t}
               </span>
             ))}
             {project.technologies.length > 4 ? (
-              <span className="rounded-full border border-white/10 bg-white/4 px-2.5 py-1 text-xs text-white/60">
+              <span className="rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs text-slate-600 dark:border-slate-800 dark:bg-white/4 dark:text-slate-500">
                 +{project.technologies.length - 4}
               </span>
             ) : null}
@@ -144,7 +144,7 @@ function TiltCard({
             <button
               type="button"
               onClick={onOpen}
-              className="inline-flex items-center gap-2 rounded-full px-3 py-2 text-sm font-medium text-white/80 hover:text-white hover:bg-white/8"
+              className="inline-flex items-center gap-2 rounded-full px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-950 dark:text-slate-300 dark:hover:bg-white/8 dark:hover:text-slate-50"
             >
               Case study <ArrowUpRight className="h-4 w-4" />
             </button>
@@ -159,7 +159,7 @@ function ProjectCaseStudy({ project }: { project: Project }) {
   return (
     <div className="grid gap-6 lg:grid-cols-12">
       <div className="lg:col-span-7">
-        <div className="overflow-hidden rounded-2xl border border-white/10 bg-black/25">
+        <div className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 dark:border-slate-800 dark:bg-black/25">
           <Image
             src={project.image.src}
             alt={project.image.alt}
@@ -168,36 +168,36 @@ function ProjectCaseStudy({ project }: { project: Project }) {
             className="h-[240px] w-full object-cover sm:h-[320px]"
           />
         </div>
-        <div className="mt-5 space-y-4 text-sm leading-6 text-white/70">
+        <div className="mt-5 space-y-4 text-sm leading-6 text-slate-600 dark:text-slate-400">
           <p>
-            <span className="text-white/90 font-semibold">Problem:</span>{" "}
+            <span className="font-semibold text-slate-900 dark:text-slate-100">Problem:</span>{" "}
             {project.problem}
           </p>
           <p>
-            <span className="text-white/90 font-semibold">Solution:</span>{" "}
+            <span className="font-semibold text-slate-900 dark:text-slate-100">Solution:</span>{" "}
             {project.solution}
           </p>
         </div>
       </div>
 
       <div className="lg:col-span-5">
-        <div className="rounded-2xl border border-white/10 bg-white/3 p-5">
-          <p className="text-sm font-semibold text-white">Impact</p>
+        <div className="rounded-2xl border border-slate-200 bg-slate-50/90 p-5 dark:border-slate-800 dark:bg-white/3">
+          <p className="text-sm font-semibold text-slate-900 dark:text-slate-100">Impact</p>
           <ul className="mt-3 space-y-2">
             {project.impact.map((x) => (
-              <li key={x} className="text-sm leading-6 text-white/70">
-                <span className="text-white/45">•</span> {x}
+              <li key={x} className="text-sm leading-6 text-slate-600 dark:text-slate-400">
+                <span className="text-slate-400 dark:text-slate-500">•</span> {x}
               </li>
             ))}
           </ul>
 
           <div className="mt-5">
-            <p className="text-sm font-semibold text-white">Stack</p>
+            <p className="text-sm font-semibold text-slate-900 dark:text-slate-100">Stack</p>
             <div className="mt-3 flex flex-wrap gap-2">
               {project.technologies.map((t) => (
                 <span
                   key={t}
-                  className="rounded-full border border-white/10 bg-white/4 px-2.5 py-1 text-xs text-white/70"
+                  className="rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs text-slate-700 dark:border-slate-800 dark:bg-white/4 dark:text-slate-400"
                 >
                   {t}
                 </span>
@@ -249,8 +249,8 @@ export function ProjectsSection() {
                   className={cn(
                     "rounded-full border px-3 py-2 text-sm transition",
                     active
-                      ? "border-white/14 bg-white/10 text-white"
-                      : "border-white/10 bg-white/4 text-white/70 hover:bg-white/8 hover:text-white",
+                      ? "border-slate-400 bg-slate-200 text-slate-900 dark:border-white/14 dark:bg-white/10 dark:text-slate-100"
+                      : "border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:bg-slate-50 hover:text-slate-900 dark:border-white/10 dark:bg-white/4 dark:text-slate-400 dark:hover:bg-white/8 dark:hover:text-slate-100",
                   )}
                 >
                   {f}

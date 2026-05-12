@@ -14,7 +14,7 @@ function Timeline({
 }) {
   return (
     <div className="relative mt-8">
-      <div className="absolute left-[11px] top-0 bottom-0 w-px bg-white/10" />
+      <div className="absolute left-[11px] top-0 bottom-0 w-px bg-slate-200 dark:bg-white/10" />
       <ol>
         {items.map((item, idx) => (
           <li
@@ -31,25 +31,25 @@ function Timeline({
                 delay: idx * 0.03,
               }}
             >
-              <div className="absolute left-0 top-1.5 h-6 w-6 rounded-full border border-white/14 bg-[--bg-elev] shadow-[0_0_0_4px_rgba(255,255,255,0.03)]">
+              <div className="absolute left-0 top-1.5 h-6 w-6 rounded-full border border-slate-300 bg-[--bg-elev] shadow-[0_0_0_4px_rgba(15,23,42,0.06)] dark:border-white/14 dark:shadow-[0_0_0_4px_rgba(255,255,255,0.03)]">
                 <div className="absolute inset-1.5 rounded-full bg-[linear-gradient(90deg,hsl(var(--accent)),hsl(var(--accent-2)),hsl(var(--accent-3)))] opacity-85" />
               </div>
               <div className="glass rounded-2xl p-5">
                 <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
                   <div>
-                    <p className="text-sm font-semibold text-white">
+                    <p className="text-sm font-semibold text-slate-900 dark:text-slate-100">
                       {item.title}
                     </p>
-                    <p className="text-sm text-white/60">{item.org}</p>
+                    <p className="text-sm text-slate-600 dark:text-slate-400">{item.org}</p>
                   </div>
-                  <p className="text-xs font-medium tracking-wide text-white/45">
+                  <p className="text-xs font-medium tracking-wide text-slate-500 dark:text-slate-500">
                     {item.period}
                   </p>
                 </div>
                 <ul className="mt-3 space-y-1.5">
                   {item.highlights.map((h) => (
-                    <li key={h} className="text-sm leading-6 text-white/70">
-                      <span className="text-white/45">•</span> {h}
+                    <li key={h} className="text-sm leading-6 text-slate-600 dark:text-slate-400">
+                      <span className="text-slate-400 dark:text-slate-500">•</span> {h}
                     </li>
                   ))}
                 </ul>
@@ -70,33 +70,33 @@ export function AboutSection() {
           <Reveal>
             <SectionHeading
               eyebrow="About"
-              title="Senior-level execution, with product instincts."
-              description="Recruiters care about proof. Here’s how I work, what I optimize for, and the standards I ship with."
+              title={`${PROFILE.company}: engineering partner for serious teams.`}
+              description="Custom web, mobile, and software engineering—with training, supervision, and outcomes you can measure."
             />
           </Reveal>
 
           <Reveal delay={0.08}>
-            <div className="mt-6 space-y-4 text-[15px] leading-7 text-white/70">
-              <p className="text-pretty">
-                {PROFILE.summary} I’m most effective in ambiguous spaces—turning
-                messy requirements into a plan, a system, and a polished user
-                experience.
-              </p>
-              <p className="text-pretty">
-                My approach is simple: understand the user, pick the smallest
-                solution that stays correct under scale, and ship with
-                observability so we can iterate with confidence.
-              </p>
+            <div className="mt-6 space-y-4 text-[15px] leading-7 text-slate-600 dark:text-slate-400">
+              {PROFILE.summary.split("\n\n").map((block, i) => (
+                <p key={`summary-${i}`} className="text-pretty">
+                  {block.trim()}
+                </p>
+              ))}
+              {PROFILE.companyDescription.split("\n\n").map((block, i) => (
+                <p key={`company-${i}`} className="text-pretty">
+                  {block.trim()}
+                </p>
+              ))}
               <div className="grid gap-3 sm:grid-cols-2">
                 {[
-                  ["Principles", "Clarity, performance, accessibility, security."],
-                  ["Collaboration", "Design + engineering alignment, fast feedback loops."],
-                  ["Reliability", "Idempotency, validation, graceful failure modes."],
-                  ["Craft", "Typography, spacing, micro-interactions, delightful UX."],
+                  ["Training", "Hands-on guidance across languages and stacks."],
+                  ["Supervision", "Projects led end-to-end—from discovery to launch."],
+                  ["Security & scale", "Quality-first delivery with resilient architecture."],
+                  ["Microsoft-aligned", "Modern frameworks plus official training pathways."],
                 ].map(([k, v]) => (
-                  <div key={k} className="rounded-2xl border border-white/10 bg-white/4 p-4">
-                    <p className="text-sm font-medium text-white">{k}</p>
-                    <p className="mt-1 text-sm text-white/65">{v}</p>
+                  <div key={k} className="rounded-2xl border border-slate-200 bg-slate-50/80 p-4 dark:border-slate-800 dark:bg-white/4">
+                    <p className="text-sm font-medium text-slate-900 dark:text-slate-100">{k}</p>
+                    <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">{v}</p>
                   </div>
                 ))}
               </div>
@@ -106,9 +106,9 @@ export function AboutSection() {
 
         <div className="lg:col-span-7">
           <Reveal>
-            <p className="text-sm font-medium text-white/80">
+            <p className="text-sm font-medium text-slate-800 dark:text-slate-300">
               Timeline
-              <span className="ml-2 text-white/45">
+              <span className="ml-2 text-slate-500 dark:text-slate-500">
                 (Experience + Training)
               </span>
             </p>

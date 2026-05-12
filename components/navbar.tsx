@@ -7,6 +7,7 @@ import { cn } from "@/lib/cn";
 import { ButtonLink } from "@/components/ui/button";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
+import { PROFILE } from "@/constants/portfolio";
 
 function scrollToId(id: string) {
   const el = document.getElementById(id);
@@ -39,14 +40,14 @@ export function Navbar() {
           <button
             type="button"
             onClick={() => scrollToId("home")}
-            className="group inline-flex items-center gap-2 rounded-full px-3 py-2 text-sm font-medium text-white/90 hover:text-white"
+            className="group inline-flex items-center gap-2 rounded-full px-3 py-2 text-sm font-medium text-slate-800 hover:text-slate-950 dark:text-slate-100/90 dark:hover:text-slate-50"
             aria-label="Go to top"
           >
             <span className="text-gradient font-semibold tracking-tight">
-              Q.C
+              {PROFILE.company}
             </span>
-            <span className="hidden text-white/45 sm:inline">
-              Full Stack Developer
+            <span className="hidden text-slate-500 dark:text-slate-400 sm:inline">
+              {PROFILE.navSubtitle}
             </span>
           </button>
 
@@ -61,8 +62,8 @@ export function Navbar() {
                   className={cn(
                     "rounded-full px-3 py-2 text-sm transition",
                     active
-                      ? "bg-white/10 text-white"
-                      : "text-white/70 hover:text-white hover:bg-white/8",
+                      ? "bg-slate-200 text-slate-900 dark:bg-white/10 dark:text-slate-100"
+                      : "text-slate-600 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-white/8 dark:hover:text-slate-100",
                   )}
                   aria-current={active ? "page" : undefined}
                 >
@@ -75,7 +76,7 @@ export function Navbar() {
           <div className="flex items-center gap-2">
             <button
               type="button"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/6 text-white/85 hover:bg-white/10"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-slate-100 text-slate-800 hover:bg-slate-200 dark:border-slate-800 dark:bg-white/6 dark:text-slate-100/85 dark:hover:bg-white/10"
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               aria-label="Toggle theme"
             >

@@ -30,21 +30,21 @@ export function ExperienceSection() {
           >
             <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
               <div>
-                <p className="text-sm font-semibold text-white">{item.title}</p>
-                <p className="text-sm text-white/60">{item.org}</p>
+                <p className="text-sm font-semibold text-slate-900 dark:text-slate-100">{item.title}</p>
+                <p className="text-sm text-slate-600 dark:text-slate-400">{item.org}</p>
               </div>
-              <p className="text-xs font-medium tracking-wide text-white/45">
+              <p className="text-xs font-medium tracking-wide text-slate-500 dark:text-slate-500">
                 {item.period}
               </p>
             </div>
-            <p className="mt-4 text-sm leading-6 text-white/70">
+            <p className="mt-4 text-sm leading-6 text-slate-600 dark:text-slate-400">
               {item.description}
             </p>
             <ul className="mt-4 grid gap-2 sm:grid-cols-2">
               {item.highlights.map((h) => (
                 <li
                   key={h}
-                  className="rounded-2xl border border-white/10 bg-white/4 p-4 text-sm leading-6 text-white/70"
+                  className="rounded-2xl border border-slate-200 bg-slate-50/90 p-4 text-sm leading-6 text-slate-600 dark:border-slate-800 dark:bg-white/4 dark:text-slate-400"
                 >
                   {h}
                 </li>
