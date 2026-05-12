@@ -16,21 +16,48 @@ export async function POST(req: Request) {
   const { name, email, subject, message } = parsed.data;
   const to = process.env.CONTACT_TO;
   const resendKey = process.env.RESEND_API_KEY;
+  const from = process.env.CONTACT_FROM ?? "Portfolio <onboarding@resend.dev>";
 
-  if (to && resendKey) {
+  if (!to || !resendKey) {
+    // Fail loudly in production so you don't get "fake success" deploys.
+    if (process.env.NODE_ENV === "production") {
+      return NextResponse.json(
+        {
+          ok: false,
+          error:
+            "Email sending is not configured on the server. Set RESEND_API_KEY and CONTACT_TO in Vercel env vars.",
+        },
+        { status: 503 },
+      );
+    }
+
+    console.log("[contact] Message received (email disabled)", {
+      name,
+      email,
+      subject,
+    });
+
+    return NextResponse.json({ ok: true, delivered: false });
+  }
+
+  try {
     const resend = new Resend(resendKey);
-    await resend.emails.send({
-      from: process.env.CONTACT_FROM ?? "Portfolio <onboarding@resend.dev>",
+    const result = await resend.emails.send({
+      from,
       to,
       replyTo: email,
       subject: `[Portfolio] ${subject}`,
       text: `From: ${name} <${email}>\n\n${message}`,
     });
-  } else {
-    // Still "works" locally without secrets; deploy can enable email via env vars.
-    console.log("[contact] Message received", { name, email, subject });
+    return NextResponse.json({ ok: true, delivered: true, id: result.data?.id });
+  } catch (err) {
+    console.error("[contact] Resend send failed", err);
+    return NextResponse.json(
+      { ok: false, error: "Email provider failed to send. Check server logs." },
+      { status: 502 },
+    );
   }
 
-  return NextResponse.json({ ok: true });
+  // unreachable
 }
 

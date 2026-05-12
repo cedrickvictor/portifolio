@@ -89,6 +89,7 @@ export function ContactSection() {
   const [status, setStatus] = React.useState<
     "idle" | "submitting" | "success" | "error"
   >("idle");
+  const [serverMessage, setServerMessage] = React.useState<string | null>(null);
 
   const onChange = (name: keyof ContactInput, value: string) => {
     setData((d) => ({ ...d, [name]: value }));
@@ -98,6 +99,7 @@ export function ContactSection() {
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("idle");
+    setServerMessage(null);
 
     const parsed = contactSchema.safeParse(data);
     if (!parsed.success) {
@@ -119,7 +121,18 @@ export function ContactSection() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(parsed.data),
       });
-      if (!res.ok) throw new Error("Request failed");
+      const body = (await res.json().catch(() => null)) as
+        | { ok?: boolean; error?: string; delivered?: boolean }
+        | null;
+      if (!res.ok || !body?.ok) {
+        setServerMessage(body?.error ?? "Request failed.");
+        throw new Error("Request failed");
+      }
+      if (body.delivered === false) {
+        setServerMessage(
+          "Message saved, but email sending is disabled on the server.",
+        );
+      }
       setStatus("success");
       setData({ name: "", email: "", subject: "", message: "" });
     } catch {
@@ -233,7 +246,7 @@ export function ContactSection() {
                         exit={{ opacity: 0, y: 6 }}
                         className="text-emerald-300/90"
                       >
-                        Message sent. I’ll get back to you soon.
+                        {serverMessage ?? "Message sent. I’ll get back to you soon."}
                       </motion.p>
                     ) : status === "error" ? (
                       <motion.p
@@ -243,7 +256,8 @@ export function ContactSection() {
                         exit={{ opacity: 0, y: 6 }}
                         className="text-red-300/90"
                       >
-                        Something went wrong. Please try again or email me.
+                        {serverMessage ??
+                          "Something went wrong. Please try again or email me."}
                       </motion.p>
                     ) : (
                       <motion.p
