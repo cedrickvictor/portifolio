@@ -3,7 +3,7 @@ import type { Project, Skill, Testimonial, TimelineItem } from "@/types/portfoli
 /** Display name (title case) */
 export const PROFILE = {
   name: "NIYONKURU Cedric Victor",
-  company: "GriLab",
+  company: "Grinel Tech Solutions",
   title: "Expert Web, Mobile, and Software Engineering",
   location: "Kigali, Rwanda",
   valueProp:
@@ -13,7 +13,7 @@ export const PROFILE = {
 Throughout my career, I've stayed committed to optimizing web performance and accessibility, ensuring that every project I touch is as inclusive as it is fast. I don't just build websites; I build digital solutions that solve real-world problems.
 
 I apply machine learning where it drives outcomes, train teams across languages and stacks, and supervise projects so delivery stays aligned from discovery to launch.`,
-  companyDescription: `GriLab is a full-service technology partner specializing in custom web design, mobile application development, and robust software engineering. We simplify the Information and Technology landscape by providing end-to-end solutions that drive efficiency and innovation.
+  companyDescription: `Grinel Tech Solutions is a full-service technology partner specializing in custom web design, mobile application development, and robust software engineering. We simplify the Information and Technology landscape by providing end-to-end solutions that drive efficiency and innovation.
 
 Our expertise spans the latest development frameworks and official Microsoft Training programs designed to elevate your business operations. Focused on quality, security, and scalability, we are your trusted source for all things IT.`,
   /** Short line under the logo in the navbar */
@@ -24,10 +24,10 @@ Our expertise spans the latest development frameworks and official Microsoft Tra
     phone: "tel:+250789359021",
     whatsapp: "https://wa.me/250789359021",
     github: "https://github.com/cedrickvictor",
-    instagram: "https://www.instagram.com/cedrick_grinel",
-    x: "https://x.com/cedrick_grinel",
-    telegram: "https://t.me/cedrickvictor",
-    facebook: "https://www.facebook.com/cedrickvictor",
+    instagram: "https://www.instagram.com/cedrick_grinel?igsh=eTUxeWFheTlwZGRy",
+    x: "https://x.com/Cedric_Grinel",
+    telegram: "t.me/cedric_grinel",
+    facebook: "https://www.facebook.com/share/1FeMFdQoYF/",
   },
 } as const;
 
@@ -75,7 +75,7 @@ export type SocialKey = (typeof SOCIAL_LINKS)[number]["key"];
 export const SKILLS: Skill[] = [
   {
     name: "Machine Learning",
-    level: 78,
+    level: 80,
     group: "Backend",
     detail:
       "Practical ML integration, data pipelines, evaluation, and shipping models alongside web products.",
@@ -89,25 +89,25 @@ export const SKILLS: Skill[] = [
   },
   {
     name: "Next.js",
-    level: 90,
+    level: 80,
     group: "Frontend",
     detail: "App Router, SSR/ISR, Server Actions, SEO, edge-friendly patterns.",
   },
   {
     name: "TypeScript",
-    level: 88,
+    level: 80,
     group: "Frontend",
     detail: "Domain typing, generics, API contracts, DX-focused safety.",
   },
   {
     name: "Tailwind CSS",
-    level: 86,
+    level: 80,
     group: "Frontend",
     detail: "Design systems, tokens, responsive composition, dark-first UI.",
   },
   {
     name: "HTML/CSS",
-    level: 85,
+    level: 90,
     group: "Frontend",
     detail: "Semantics, layout, motion, cross-browser polish.",
   },
@@ -115,25 +115,25 @@ export const SKILLS: Skill[] = [
   // Backend
   {
     name: "Node.js",
-    level: 84,
+    level: 85,
     group: "Backend",
     detail: "APIs, queues, auth, caching, observability, testing.",
   },
   {
     name: "Express",
-    level: 80,
+    level: 85,
     group: "Backend",
     detail: "REST, middleware, validation, structured error handling.",
   },
   {
     name: "PHP",
-    level: 72,
+    level: 90,
     group: "Backend",
     detail: "Legacy modernization, API integration, pragmatic delivery.",
   },
   {
     name: "MySQL",
-    level: 78,
+    level: 90,
     group: "Backend",
     detail: "Schema design, indexing, query optimization, migrations.",
   },
@@ -147,7 +147,7 @@ export const SKILLS: Skill[] = [
   },
   {
     name: "Figma",
-    level: 76,
+    level: 79,
     group: "Tools",
     detail: "UI exploration, components, design handoff, tokens.",
   },
@@ -265,7 +265,7 @@ export const EDUCATION: TimelineItem[] = [
 
 export const TESTIMONIALS: Testimonial[] = [
   {
-    name: "Amina K.",
+    name: "Obed U.",
     role: "Product Lead",
     company: "SaaS Platform",
     rating: 5,
@@ -274,15 +274,15 @@ export const TESTIMONIALS: Testimonial[] = [
     avatar: "/avatars/amina.svg",
   },
   {
-    name: "Daniel M.",
-    role: "Engineering Manager",
+    name: "Innocent M.",
+    role: "KAMI WOOD DESIGN - CEO",
     rating: 5,
     quote:
       "Strong ownership and reliability. Thought through edge cases, performance, and accessibility—then delivered a polished result with docs.",
     avatar: "/avatars/daniel.svg",
   },
   {
-    name: "Sofia L.",
+    name: "James K.",
     role: "Founder",
     company: "Agency Client",
     rating: 5,
